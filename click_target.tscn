@@ -29,6 +29,9 @@ position = Vector2( 0.647079, -0.32354 )
 shape = SubResource( 1 )
 
 [node name="Tween" type="Tween" parent="KinematicBody2D"]
+
+[node name="Timer" type="Timer" parent="."]
 [connection signal="damaged" from="KinematicBody2D" to="." method="_on_KinematicBody2D_damaged"]
 [connection signal="dead" from="KinematicBody2D" to="." method="_on_KinematicBody2D_dead"]
 [connection signal="healed" from="KinematicBody2D" to="." method="_on_KinematicBody2D_healed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

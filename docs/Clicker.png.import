@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Clicker.png-ca862618e4d1253a0a4fe7a47b8ecaca.stex"
+path="res://.import/Clicker.png-c1fd898d4df87dde9bfcdd2547eb9a12.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://build/Clicker.png"
-dest_files=[ "res://.import/Clicker.png-ca862618e4d1253a0a4fe7a47b8ecaca.stex" ]
+source_file="res://docs/Clicker.png"
+dest_files=[ "res://.import/Clicker.png-c1fd898d4df87dde9bfcdd2547eb9a12.stex" ]
 
 [params]
 

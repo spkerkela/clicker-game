@@ -1,5 +1,6 @@
 extends Node
 
+onready var timer = $Timer
 var targets = []
 
 func _add_target(target):
@@ -10,6 +11,9 @@ func _remove_target(target):
 
 func _ready():
 	pass
+
+func _stop():
+	timer.stop()
 
 func _on_Timer_timeout():
 	var target_count = len(targets)

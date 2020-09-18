@@ -9,6 +9,8 @@ var damage_allocators = []
 var healers = []
 var score = 0
 
+onready var enemy = $Enemy
+
 func _ready():
 	score_label.text = str(score)
 	healers.append(Healer.instance())
@@ -30,6 +32,10 @@ func _ready():
 				healer._add_target(clickable)
 			clickable.connect("dead", self, "_remove_target")
 			clickable.connect("healed", self, "_add_score")
+			clickable.connect("attack_boss", self, "_attack_boss")
+
+func _attack_boss(damage):
+	enemy._take_damage(damage)
 
 func _add_score(heal_score):
 	score += heal_score
@@ -59,3 +65,8 @@ func _add_healer():
 				healer._add_target(child)
 	healers.append(healer)
 	add_child(healer)
+
+
+func _on_Enemy_died():
+	for damage_allocator in damage_allocators:
+		damage_allocator._stop()
