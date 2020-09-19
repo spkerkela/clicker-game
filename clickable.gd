@@ -6,6 +6,7 @@ signal healed
 signal damaged
 onready var alive = true
 onready var tween = $Tween
+onready var anim = $AnimationPlayer
 var health = 100
 func _ready():
 	bar.value = health
@@ -22,6 +23,7 @@ func _heal(amount):
 			health = 100
 		var score = health - temp_value
 		if(score > 0):
+			anim.play("player_healed")
 			emit_signal("healed", score)
 		_update_bar()
 
@@ -34,7 +36,9 @@ func _take_damage(damage):
 	if health <= 0:
 		health = 0
 		alive = false
+		anim.play("hero_killed", -1, 2)
 		emit_signal("dead", self)
 	else:
+		anim.play("hero_attacked")
 		emit_signal("damaged", damage)
 	_update_bar()

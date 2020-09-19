@@ -8,8 +8,10 @@ onready var score_label = $Score
 var damage_allocators = []
 var healers = []
 var score = 0
+var group_members_alive = 0
 
 onready var enemy = $Enemy
+onready var game_over_popup = $PopupMenu
 
 func _ready():
 	score_label.text = str(score)
@@ -33,6 +35,7 @@ func _ready():
 			clickable.connect("dead", self, "_remove_target")
 			clickable.connect("healed", self, "_add_score")
 			clickable.connect("attack_boss", self, "_attack_boss")
+			group_members_alive += 1
 
 func _attack_boss(damage):
 	enemy._take_damage(damage)
@@ -46,6 +49,15 @@ func _remove_target(target):
 		healer._remove_target(target)
 	for damage_allocator in damage_allocators:
 		damage_allocator._remove_target(target)
+	
+	group_members_alive -= 1
+	if group_members_alive <= 0:
+		_end_game("You were defeated!")
+
+func _end_game(text):
+	game_over_popup.get_node("VBoxContainer/Game Over Text").text = text
+	game_over_popup.show()
+
 
 func _add_damage_allocator():
 	var allocator = DamageAllocator.instance()
@@ -70,3 +82,11 @@ func _add_healer():
 func _on_Enemy_died():
 	for damage_allocator in damage_allocators:
 		damage_allocator._stop()
+	_end_game("You defeated the monster!")
+
+func _on_Restart_Button_pressed():
+	get_tree().reload_current_scene()
+
+
+func _on_Back_To_Menu_Button_pressed():
+	get_tree().change_scene("res://start.tscn")
