@@ -25,7 +25,6 @@ func _ready():
 	timer.start()
 	enemy.initialize(bosses[0])
 	bosses_total = len(bosses)
-	print(bosses_total)
 	var melee_dps = base_class
 	var weapon = base_item
 	score_label.text = str(score)
@@ -109,7 +108,6 @@ func _allocate_loot():
 	for l in loot:
 		var receiver_index = randi() % receiver_count
 		allies[receiver_index].equip(l)
-		print(l.description + " equipped!")
 
 func _on_Enemy_died():
 	_allocate_loot()
