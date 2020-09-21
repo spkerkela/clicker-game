@@ -1,15 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Background.png" type="Texture" id=1]
 [ext_resource path="res://main.gd" type="Script" id=2]
 [ext_resource path="res://enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://resources/wooden_sword.tres" type="Resource" id=4]
+[ext_resource path="res://resources/melee_dps.tres" type="Resource" id=5]
+[ext_resource path="res://resources/gorgoron.tres" type="Resource" id=6]
+[ext_resource path="res://resources/hogger.tres" type="Resource" id=7]
+[ext_resource path="res://resources/peruvion.tres" type="Resource" id=8]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
+base_class = ExtResource( 5 )
+base_item = ExtResource( 4 )
+bosses = [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ) ]
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 8.0
-autostart = true
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 513.471, 230.918 )

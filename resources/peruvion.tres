@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://boss.gd" type="Script" id=1]
+[ext_resource path="res://resources/spinal_reaper.tres" type="Resource" id=2]
+[ext_resource path="res://resources/rusty_dagger.tres" type="Resource" id=3]
+[ext_resource path="res://resources/rusty_battle_axe.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+hp = 8000
+name = "Peruvion the nightmare"
+min_damage = 1
+max_damage = 10
+attack_speed = 1.0
+loot = [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 4 ) ]

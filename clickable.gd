@@ -8,6 +8,7 @@ onready var alive = true
 onready var tween = $Tween
 onready var anim = $AnimationPlayer
 var health = 100
+var max_health = 100
 func _ready():
 	bar.value = health
 
@@ -15,12 +16,18 @@ func _update_bar():
 	tween.interpolate_property(bar, "value", bar.value, health, 0.1, Tween.TRANS_LINEAR)
 	tween.start()
 
+func initialize(hp):
+	max_health = hp
+	health = hp
+	bar.max_value = hp
+	bar.value = hp
+
 func _heal(amount):
 	if alive:
 		var temp_value = health
 		health += amount
-		if health > 100:
-			health = 100
+		if health > max_health:
+			health = max_health
 		var score = health - temp_value
 		if(score > 0):
 			anim.play("player_healed")

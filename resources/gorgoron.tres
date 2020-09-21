@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://boss.gd" type="Script" id=1]
+[ext_resource path="res://resources/spinal_reaper.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+hp = 30000
+name = "Gorgoron the Dragon"
+min_damage = 5
+max_damage = 30
+attack_speed = 2.5
+loot = [ ExtResource( 2 ) ]

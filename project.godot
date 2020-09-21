@@ -8,9 +8,26 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Resource",
+"class": "Boss",
+"language": "GDScript",
+"path": "res://boss.gd"
+}, {
+"base": "Resource",
+"class": "Equippable",
+"language": "GDScript",
+"path": "res://equippable.gd"
+}, {
+"base": "Resource",
+"class": "Stats",
+"language": "GDScript",
+"path": "res://hero_stats.gd"
+} ]
 _global_script_class_icons={
-
+"Boss": "",
+"Equippable": "",
+"Stats": ""
 }
 
 [application]

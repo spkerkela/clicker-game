@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://equippable.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+description = "Rusty Battle-Axe"
+slot = 0
+min_damage = 6
+max_damage = 9
+attack_speed = 3.8

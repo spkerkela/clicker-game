@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://hero_stats.gd" type="Script" id=1]
+[ext_resource path="res://sprites/clicker_hero_1.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+class_description = ""
+hp = 100
+icon = ExtResource( 2 )
